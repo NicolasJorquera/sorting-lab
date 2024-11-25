@@ -2,6 +2,7 @@
   "name": "sorting-lab",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://nicolasjorquera.github.io/sorting-lab/",
   "type": "module",
   "scripts": {
     "dev": "vite",
