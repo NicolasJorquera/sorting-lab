@@ -5,7 +5,7 @@
   "homepage": "https://nicolasjorquera.github.io/sorting-lab/",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 4000",
     "build": "tsc -b && vite build",
     "deploy": "vite build && gh-pages -d dist",
     "lint": "eslint .",

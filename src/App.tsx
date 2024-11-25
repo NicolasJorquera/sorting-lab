@@ -5,7 +5,7 @@ import { PyodideInstance } from "./types";
 
 const App: React.FC = () => {
   const [pyodide, setPyodide] = useState<PyodideInstance | null>(null);
-  const [output, setOutput] = useState<number[][]>([]);
+  const [output, setOutput] = useState<number[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
@@ -26,12 +26,12 @@ const App: React.FC = () => {
     setLoading(true);
     setOutput([]);
     try {
-      const response = await fetch(`/algorithms/${algorithm}.py`);
+      const response = await fetch(`public/algorithms/${algorithm}.py`);
       const pythonCode = await response.text();
-      pyodide.runPython(`
-        ${pythonCode}
-        result = bubble_sort(${JSON.stringify(array)})
-      `);
+      const runPythonCode = `${pythonCode}
+result = ${algorithm}(${JSON.stringify(array)})
+      `
+      pyodide.runPython(runPythonCode);
       const result = pyodide.globals.get("result").toJs();
       setOutput(result);
     } catch (error) {

@@ -1,7 +1,7 @@
 import React from "react";
 
 interface Props {
-  output: number[][];
+  output: number[];
 }
 
 const Visualization: React.FC<Props> = ({ output }) => {
@@ -9,7 +9,7 @@ const Visualization: React.FC<Props> = ({ output }) => {
     <div>
       <h2>Steps:</h2>
       {output.map((step, index) => (
-        <p key={index}>{step.join(", ")}</p>
+        <p key={index}>{step}</p>
       ))}
     </div>
   );
